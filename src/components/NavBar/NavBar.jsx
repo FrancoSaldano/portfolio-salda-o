@@ -1,32 +1,61 @@
-import React from "react";
-import img from "../NavBar/linduras shop.png"
+import img from "./logo.png";
+import CartWidget  from "../NavBar/CartWidget/CartWidget";
+import HomeWidget from "./HomeWidget/HomeWidget";
+import UserWidget from "./UserWidget/UserIcon";
+import ContactIcon from "./ContactWidget/ContactIcon";
 const NavBar = () => {
-    return (
-    <div>
-        <nav className="bg-slate-300">
-      <ul className="flex">
-        <li className="mx-auto p-3">
-            <img class="w-24 h-24 rounded-full mx-auto" src={img} alt="" width="384" height="512"/>
+  return (
+    <nav className= "row-span-1 col-span-2 font-title-hammer">
+      <ul className="flex content-start items-top pt-0">
+        <li className="mx-auto">
+          <a
+            className="transition ease-in-out text-amber-400 hover:"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <HomeWidget/>
+            HOME
+          </a>
         </li>
-        <li className="mx-auto p-3">
-          <a href="#" target="_blank" rel="noopener noreferrer"></a>Home
+        <li className="mx-auto">
+          <a
+            className="text-amber-400"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <UserWidget/>
+            ABOUT
+          </a>
         </li>
-        <li className="mx-auto p-3">
-          <a href="#" target="_blank" rel="noopener noreferrer"></a>About
+        <li className="mx-auto">
+          <a
+            className="text-amber-400"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <ContactIcon/>
+            CONTACT
+          </a>
         </li>
-        <li className="mx-auto p-3">
-          <a href="#" target="_blank" rel="noopener noreferrer"></a>Shop
+        <li className="mx-auto">
+          <a
+            className="text-amber-400"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <CartWidget/>
+            SHOP
+          </a>
         </li>
       </ul>
     </nav>
-    <div>
-        <h3></h3>
-        <h3></h3>
-        <h3></h3>
-    </div>
-    </div>
-    
   );
 };
 
 export default NavBar;
+// AMBER 400 , 500 , 800
+// STONE 800
