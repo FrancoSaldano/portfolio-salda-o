@@ -5,11 +5,11 @@ import UserWidget from "./UserWidget/UserIcon";
 import ContactIcon from "./ContactWidget/ContactIcon";
 const NavBar = () => {
   return (
-    <nav className= "row-span-1 col-span-2 font-title-hammer">
-      <ul className="flex content-start items-top pt-0">
-        <li className="mx-auto">
+    <nav className= "row-span-1 col-span-2 font-title-hammer z-10"> 
+      <ul className="flex justify-end pt-0">
+        <li className="mx-3 transition-all ease-in-out delay-150 hover:tracking-widest">
           <a
-            className="transition ease-in-out text-amber-400 hover:"
+            className="text-amber-400 transition-all ease-in-out delay-150 hover:tracking-widest"
             href="#"
             target="_blank"
             rel="noopener noreferrer"
@@ -18,7 +18,7 @@ const NavBar = () => {
             HOME
           </a>
         </li>
-        <li className="mx-auto">
+        <li className="mx-3 transition-all ease-in-out delay-150 hover:tracking-widest ">
           <a
             className="text-amber-400"
             href="#"
@@ -29,7 +29,7 @@ const NavBar = () => {
             ABOUT
           </a>
         </li>
-        <li className="mx-auto">
+        <li className="mx-3 transition-all ease-in-out delay-150 hover:tracking-widest">
           <a
             className="text-amber-400"
             href="#"
@@ -40,7 +40,7 @@ const NavBar = () => {
             CONTACT
           </a>
         </li>
-        <li className="mx-auto">
+        <li className="mx-3 transition-all ease-in-out delay-150 hover:tracking-widest">
           <a
             className="text-amber-400"
             href="#"
