@@ -1,4 +1,3 @@
-import img from "./logo.png";
 import CartWidget  from "../NavBar/CartWidget/CartWidget";
 import HomeWidget from "./HomeWidget/HomeWidget";
 import UserWidget from "./UserWidget/UserIcon";
