@@ -4,35 +4,21 @@ import ItemDetail from "./ItemDetail";
 const ItemDetailContainer = () => {
   const [services, setServices] = useState([]);
   const getItem = () => {
-    fetch('/MockDataJson.json')
+    fetch("/MockDataJson.json")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setTimeout(() => {
           setServices(data);
         }, 2000);
       });
   };
   useEffect(() => {
-      getItem();
-      console.log(services)
+    getItem();
   }, []);
 
   return (
     <>
-      {services.map((service) => {
-        console.log(service);
-        return (
-          <div className="inline-block">
-            <ItemDetail
-              id={service.id}
-              name={service.name}
-              description={service.description}
-              price={service.price}
-            />
-          </div>
-        );
-      })}
+      <ItemDetail name={services[0].name} price={services[0].price} description={services[0].description}></ItemDetail>
     </>
   );
 };
