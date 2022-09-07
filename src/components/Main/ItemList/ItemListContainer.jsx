@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import data from "./MockData";
-import ItemList from "../ItemList/ItemList";
+import data from "../Data/MockData";
+import ItemList from "./ItemList"
 
 const ItemListContainer = ({ grettings, children }) => {
   const [services, setServices] = useState([]);
@@ -16,9 +16,9 @@ const ItemListContainer = ({ grettings, children }) => {
   }, []);
 
   return (
-    <div className="row-span-2 col-span-2">
+    <div>
       <h1 className="text-amber-100">{grettings}</h1>
-      <ItemList servicesList={services}></ItemList>
+      <ItemList servicesList={services} />
       {children}
     </div>
   );

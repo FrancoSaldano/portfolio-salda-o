@@ -1,11 +1,14 @@
+import ItemListContainer from "../Main/ItemList/ItemListContainer"
+import ItemCount from "../Main/ItemList/ItemCount"
+import ItemDetailContainer from "../Main/ItemList/ItemDetailContainer";
+
 const Main = () => {
   return (
-    <div className="row-span-4 col-span-1">
-      <div className="w-max text-amber-400 m-10 mt-40 mb-40 text-right font-title-hammer font-bold tracking-widest scale-120 -rotate-90 select-none">
-        <div className=" my-3 text-8xl">FRANCO</div>
-        <div className="my-3 text-2xl">DESARROLLO WEB</div>
-        <div className="my-3 text-8xl">SALDAÑO</div>
-      </div>
+    <div className="row-span-3 col-span-2">
+      <ItemListContainer grettings={"Hola :D"}>
+        <ItemCount stock={5} initial={1} />
+      </ItemListContainer>
+      <ItemDetailContainer className="flex flex-wrap columns-2"/>
     </div>
   );
 };

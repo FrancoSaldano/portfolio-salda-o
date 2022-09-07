@@ -1,4 +1,5 @@
-import Item from "../Item/Item";
+import Item from "./Item";
+
 const ItemList = ({ servicesList }) => {
   console.log(servicesList);
   return (
@@ -9,7 +10,7 @@ const ItemList = ({ servicesList }) => {
             key={servicio.id}
             name={servicio.name}
             price={servicio.price}
-          ></Item>
+          />
         );
       })}
     </div>
