@@ -1,4 +1,4 @@
-const ItemDetail = ({ name, description }) => {
+const ItemDetail = ({ name, description, price }) => {
   return (
     <div className="basis-1/2 grow w-full gap-0">
       <div>
@@ -6,7 +6,7 @@ const ItemDetail = ({ name, description }) => {
         {name}
       </p>
       <p className="p-3 font-detail-roboto text-sm  text-amber-100 transition-all ease-in-out delay-250 hover:text-base hover:tracking-wide hover:p-3 hover:m-0.5 hover:bg-stone-900">
-        {description}
+        {description} {price}
       </p>
       </div>
     </div>

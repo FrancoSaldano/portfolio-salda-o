@@ -28,6 +28,7 @@ const ItemDetailContainer = () => {
               id={service.id}
               name={service.name}
               description={service.description}
+              price={service.price}
             />
           </div>
         );
