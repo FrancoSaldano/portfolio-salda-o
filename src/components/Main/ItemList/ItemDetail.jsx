@@ -1,12 +1,14 @@
-const ItemDetail = ({ name, description, price }) => {
+import ItemCount from "./ItemCount";
+
+const ItemDetail = ({ name, description, price}) => {
   return (
-    <div className="basis-1/2 grow w-full gap-0">
-      <div>
-      <p className="p-4 font-text-montserrat text-xl  text-amber-100 transition-all ease-in-out delay-250 hover:text-2xl hover:tracking-wide hover:p-3 hover:m-0.5 hover:bg-stone-900">
+    <div className="flex flex-wrap columns-2">
+      <div className="p-1 transition-all ease-in-out delay-250 hover:text-2xl hover:tracking-wide hover: -m-4-0.5 hover:bg-stone-900">
+      <p className="p-4 font-text-montserrat text-xl  text-amber-100 ">
         {name}
       </p>
-      <p className="p-3 font-detail-roboto text-sm  text-amber-100 transition-all ease-in-out delay-250 hover:text-base hover:tracking-wide hover:p-3 hover:m-0.5 hover:bg-stone-900">
-        {description} {price}
+      <p className="p-3 font-detail-roboto text-sm  text-amber-100 ">
+        {description} {price} <ItemCount stock={5} initial={1}></ItemCount>
       </p>
       </div>
     </div>

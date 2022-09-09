@@ -3,6 +3,36 @@
         "id": "1",
         "name": "Service N°1",
         "price": "$10000",
-        "description": "Description N°1"
+        "description": "Description N°1",
+        "category":"Category N°1"
+    },
+    {
+        "id": "2",
+        "name": "Service N°2",
+        "price": "$10000",
+        "description": "Description N°2",
+        "category":"Category N°1"
+    },
+    {
+        "id": "3",
+        "name": "Service N°3",
+        "price": "$10000",
+        "description": "Description N°3",
+        "category":"Category N°2"
+    },
+    {
+        "id": "4",
+        "name": "Service N°4",
+        "price": "$10000",
+        "description": "Description N°4",
+        "category":"Category N°3"
+    },
+    {
+        "id": "5",
+        "name": "Service N°5",
+        "price": "$10000",
+        "description": "Description N°5",
+        "category":"Category N°3"
     }
+
 ]

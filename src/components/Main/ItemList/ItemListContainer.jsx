@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import data from "../Data/MockData";
-import ItemList from "./ItemList"
+import ItemList from "./ItemList";
 
-const ItemListContainer = ({ grettings, children }) => {
+const ItemListContainer = ({ title }) => {
   const [services, setServices] = useState([]);
+
   const getData = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(data);
@@ -17,9 +18,10 @@ const ItemListContainer = ({ grettings, children }) => {
 
   return (
     <div>
-      <h1 className="text-amber-100">{grettings}</h1>
+      <p className="font-title-hammer text-4xl -m-5 text-right text-stone-600">
+        {title}
+      </p>
       <ItemList servicesList={services} />
-      {children}
     </div>
   );
 };
