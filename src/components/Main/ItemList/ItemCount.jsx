@@ -5,7 +5,7 @@ import MinusIcon from "../Icons/MinusIcon";
 const ItemCount = ({ stock, initial }) => {
   const [count, setCount] = useState(0);
   return (
-    <div className="flex justify-center">
+    <div className="flex mx-auto">
       <button
         onClick={() =>
           setCount((count) => (count > initial ? (count -= 1) : count))

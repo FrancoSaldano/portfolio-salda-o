@@ -14,7 +14,7 @@ const ItemDetailContainer = ({ categoryId }) => {
               ({ category }) => category === categoryId
             );
             setServices(newServices);
-          }else{
+          } else {
             setServices(data);
           }
         }, 2000);
@@ -28,7 +28,7 @@ const ItemDetailContainer = ({ categoryId }) => {
     <>
       {services.map((servicio) => {
         return (
-        <div className="inline-block">
+          <div className="inline-block basis-1/2 grow ">
             <ItemDetail
               name={servicio.name}
               price={servicio.price}

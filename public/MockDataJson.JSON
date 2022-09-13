@@ -1,38 +1,38 @@
 [
     {
         "id": "1",
-        "name": "Service N°1",
-        "price": "$10000",
-        "description": "Description N°1",
-        "category":"Category N°1"
+        "name": "Branding Desing",
+        "price": "$17000",
+        "description": "Defino tu marca con el diseño ideal con un desarrollo personalizado y único.",
+        "category":"Branding"
     },
     {
         "id": "2",
-        "name": "Service N°2",
-        "price": "$10000",
-        "description": "Description N°2",
-        "category":"Category N°1"
+        "name": "Sales Strategy",
+        "price": "$22000",
+        "description": "Armo el plan de ventas dinámico que más se adapta a ti y tu negocio.",
+        "category":"Branding"
     },
     {
         "id": "3",
-        "name": "Service N°3",
-        "price": "$10000",
-        "description": "Description N°3",
-        "category":"Category N°2"
+        "name": "Maquetación Web",
+        "price": "$44000",
+        "description": "Le damos vida a tu pagina web. Trabajando con las tecnologías más actuales en el mercado, tu site te espera..",
+        "category":"Maquetación Web"
     },
     {
         "id": "4",
-        "name": "Service N°4",
-        "price": "$10000",
-        "description": "Description N°4",
-        "category":"Category N°3"
+        "name": "Desarrollo Web",
+        "price": "$80000",
+        "description": "Branding, Maquetacion Web, Despligue",
+        "category":"Desarrollo Web"
     },
     {
         "id": "5",
-        "name": "Service N°5",
-        "price": "$10000",
-        "description": "Description N°5",
-        "category":"Category N°3"
+        "name": "Actualización Web",
+        "price": "$60000",
+        "description": "El mercado cambia constantemente, actualizá tu site de la mejor manera.",
+        "category":"Desarrollo Web"
     }
 
 ]

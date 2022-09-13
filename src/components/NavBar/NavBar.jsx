@@ -5,15 +5,15 @@ import ContactIcon from "./ContactWidget/ContactIcon";
 import { Link } from "react-router-dom";
 const NavBar = () => {
   return (
-    <nav className="row-span-1 col-span-2 font-title-hammer">
+    <nav className="container fixed row-span-1 col-span-2 flex justify-center right-0 top-0 pt-3 pb-8 font-title-hammer bg-stone-800">
       <ul className="flex justify-center">
-        <li className="mx-3 transition-all ease-in-out delay-150 hover:tracking-widest ">
+        <li className="mx-3 text-sm transition-all ease-in-out delay-150 hover:tracking-widest ">
           <Link to={'/'} className="text-amber-400 hover:underline-offset-4 hover:decoration-amber-100">
             <HomeWidget />
             HOME
           </Link>
         </li>
-        <li className="mx-3 transition-all ease-in-out delay-150 hover:tracking-widest ">
+        <li className="mx-3 text-sm transition-all ease-in-out delay-150 hover:tracking-widest ">
           <a
             className="text-amber-400"
             href="#"
@@ -24,7 +24,7 @@ const NavBar = () => {
             ABOUT
           </a>
         </li>
-        <li className="mx-3 transition-all ease-in-out delay-150 hover:tracking-widest">
+        <li className="mx-3 text-sm transition-all ease-in-out delay-150 hover:tracking-widest">
           <a
             className="text-amber-400"
             href="#"
@@ -35,7 +35,7 @@ const NavBar = () => {
             CONTACT
           </a>
         </li>
-        <li className="mx-3 transition-all ease-in-out delay-150 hover:tracking-widest">
+        <li className="mx-3 text-sm transition-all ease-in-out delay-150 hover:tracking-widest">
           <Link to={'/shop'} className="text-amber-400 transition-all ease-in-out delay-150 hover:tracking-widest">
           <CartWidget />
             SHOP

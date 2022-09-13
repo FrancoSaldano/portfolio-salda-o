@@ -9,7 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 /* funcional components*/
 function App() {
   return (
-    <div className="App grid grid-rows-4 grid-cols-3">
+    <div className="App grid grid-rows-6 grid-cols-3  gap-3 grow-0 relative">
       <BrowserRouter>
         <Aside />
         <NavBar />

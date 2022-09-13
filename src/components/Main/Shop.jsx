@@ -6,17 +6,17 @@ const Shop = () => {
   const { categoryId } = useParams();
   console.log(categoryId);
   return (
-    <div className="row-span-2 col-span-2">
-      <p className="font-title-hammer text-4xl -m-5 text-right text-stone-600">
-        SHOP
-      </p>
-      <p className="font-title-hammer text-4xl -m-5 mt-5 text-right text-stone-700">
-        {categoryId}
-      </p>
-      <ItemDetailContainer
-        categoryId={categoryId}
-        />
-        <ItemListContainer/>
+    <div className="flex flex-wrap row-span-4 col-span-2 row-start-2 col-start-2 -mt-20">
+      <div className="grow w-full">
+        <p className="font-title-hammer text-4xl -mx-5 mb-5 text-right text-stone-600">
+          SHOP
+        </p>
+        <p className="font-title-hammer text-4xl -m-5 m t-5 text-right text-stone-700">
+          {categoryId}
+        </p>
+      </div>
+      <ItemDetailContainer categoryId={categoryId} />
+      <ItemListContainer title={"CATEGORIAS"}/>
     </div>
   );
 };

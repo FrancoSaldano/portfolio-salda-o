@@ -18,7 +18,7 @@ const ItemListContainer = ({ title }) => {
 
   return (
     <div>
-      <p className="font-title-hammer text-4xl -m-5 text-right text-stone-600">
+      <p className="font-title-hammer text-4xl -mx-5 m-5 text-right text-stone-600">
         {title}
       </p>
       <ItemList servicesList={services} />

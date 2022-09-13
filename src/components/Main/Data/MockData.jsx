@@ -1,7 +1,7 @@
  const data = [
-  { id: 1, name: "Category N°1" },
-  { id: 2, name: "Category N°2" },
-  { id: 3, name: "Category N°3" },
+  { id: 1, name: "Branding" },
+  { id: 2, name: "Maquetación Web" },
+  { id: 3, name: "Desarrollo Web" },
 
 ]
 export default data
