@@ -32,13 +32,7 @@ const DescriptionMenu = ({ description, price }) => {
                 </button>
               </Menu.Item>
             </div>
-            <div className="px-1 py-1 ">
-              <Menu.Item>
-                <button className="bg-stone-700 text-stone-100 group flex w-full items-center px-4 py-2 text-md">
-                  {price}
-                </button>
-              </Menu.Item>
-            </div>
+
           </Menu.Items>
         </Transition>
       </Menu>
