@@ -3,7 +3,7 @@ import data from "../Data/MockData";
 import ItemList from "./ItemList";
 
 const ItemListContainer = ({ title }) => {
-  const [services, setServices] = useState([]);
+  const [category, setCategory] = useState([]);
 
   const getData = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -12,16 +12,16 @@ const ItemListContainer = ({ title }) => {
   });
   useEffect(() => {
     getData.then((result) => {
-      setServices(result);
+      setCategory(result);
     });
   }, []);
 
   return (
-    <div>
+    <div className="grow w-full">
       <p className="font-title-hammer text-4xl -mx-5 m-5 text-right text-stone-600">
         {title}
       </p>
-      <ItemList servicesList={services} />
+      <ItemList categoryList={category} />
     </div>
   );
 };

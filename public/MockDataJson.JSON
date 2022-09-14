@@ -15,14 +15,14 @@
     },
     {
         "id": "3",
-        "name": "Maquetación Web",
+        "name": "Maquetación",
         "price": "$44000",
         "description": "Le damos vida a tu pagina web. Trabajando con las tecnologías más actuales en el mercado, tu site te espera..",
         "category":"Maquetación Web"
     },
     {
         "id": "4",
-        "name": "Desarrollo Web",
+        "name": "Desarrollo",
         "price": "$80000",
         "description": "Branding, Maquetacion Web, Despligue",
         "category":"Desarrollo Web"

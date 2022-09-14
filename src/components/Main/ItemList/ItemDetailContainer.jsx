@@ -1,45 +1,68 @@
 import { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
+import ShowItem from "./ShowItem";
 
-const ItemDetailContainer = ({ categoryId }) => {
+const ItemDetailContainer = ({ categoryId, itemId }) => {
   const [services, setServices] = useState([]);
+  const [type, setType] = useState(true);
 
   const getItem = () => {
     fetch("/MockDataJson.json")
       .then((response) => response.json())
       .then((data) => {
         setTimeout(() => {
-          if (categoryId) {
+          if (itemId) {
+            const newService = data.find(({ name }) => name === itemId);
+            setServices([newService]);
+            setType(false);
+          } else if (categoryId) {
             const newServices = data.filter(
               ({ category }) => category === categoryId
             );
             setServices(newServices);
+            setType(true);
           } else {
             setServices(data);
+            setType(true);
           }
         }, 2000);
       });
   };
   useEffect(() => {
     getItem();
-  }, [categoryId]);
+  }, [categoryId, itemId]);
 
-  return (
-    <>
-      {services.map((servicio) => {
-        return (
-          <div className="inline-block basis-1/2 grow ">
-            <ItemDetail
-              name={servicio.name}
-              price={servicio.price}
-              description={servicio.description}
-              category={servicio.category}
-            />
-          </div>
-        );
-      })}
-    </>
-  );
+  if (type) {
+    return (
+      <>
+        {services.map((servicio) => {
+          return (
+            <div className="inline-block basis-1/2 grow" key={servicio.id}>
+              <ItemDetail
+                name={servicio.name}
+                price={servicio.price}
+                category={servicio.category}
+              />
+            </div>
+          );
+        })}
+      </>
+    );
+  } else {
+    console.log(services[0].name, "este es el ervice");
+    return (
+      <>
+        <div className="grow w-full">
+          <ShowItem
+            name={services[0]?.name}
+            price={services[0]?.price}
+            description={services[0]?.description}
+            category={services[0]?.category}
+          />
+        </div>
+      </>
+    );
+  }
 };
 
 export default ItemDetailContainer;

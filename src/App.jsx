@@ -5,6 +5,7 @@ import Footer from "./components/Footer/Footer";
 import Main from "./components/Main/Main";
 import Shop from "./components/Main/Shop";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ShowItem from "./components/Main/ItemList/ShowItem";
 
 /* funcional components*/
 function App() {
@@ -19,6 +20,8 @@ function App() {
           <Route path="/shop" element={<Shop />} />
           //category
           <Route path="/shop/:categoryId" element={<Shop />} />
+          //category en el shop
+          <Route path="/shop/:categoryId/:itemId" element={<Shop />} />
           //category en el shop
         </Routes>
         <Footer />

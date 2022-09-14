@@ -1,15 +1,15 @@
 import Item from "./Item";
 import { NavLink } from "react-router-dom";
 
-const ItemList = ({ servicesList }) => {
+const ItemList = ({ categoryList }) => {
   return (
     <div className="flex flex-wrap justify-between mx-5">
-      {servicesList.map((servicio) => {
+      {categoryList.map((category) => {
         return (
-          <NavLink key={servicio.id} to={`/shop/${servicio.name}`}>
+          <NavLink key={category.id} to={`/shop/${category.name}`}>
             <Item
-              name={servicio.name}
-              price={servicio.price}
+              name={category.name}
+              price={category.price}
             />
           </NavLink>
         );
