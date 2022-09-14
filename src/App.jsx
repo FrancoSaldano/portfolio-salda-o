@@ -5,7 +5,6 @@ import Footer from "./components/Footer/Footer";
 import Main from "./components/Main/Main";
 import Shop from "./components/Main/Shop";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ShowItem from "./components/Main/ItemList/ShowItem";
 
 /* funcional components*/
 function App() {

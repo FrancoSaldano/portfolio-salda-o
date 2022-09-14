@@ -1,7 +1,7 @@
 import ItemCount from "./ItemCount";
 import DescriptionMenu from "./DescriptionMenu";
 
-const ItemDetail = ({ name, description, price, category }) => {
+const ItemDetail = ({ name, price, category }) => {
 
   return (
     <div className="px-auto mx-auto flex flex-col transition-all ease-in-out delay-250 hover:bg-stone-900 ">
@@ -17,8 +17,6 @@ const ItemDetail = ({ name, description, price, category }) => {
       <p className="p-4 mx-auto my-1 grow font-detail-roboto text-md text-amber-100 ">
         {price}
       </p>
-      
-      <ItemCount stock={5} initial={1}></ItemCount>
     </div>
   );
 };
