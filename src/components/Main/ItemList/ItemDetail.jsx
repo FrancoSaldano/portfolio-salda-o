@@ -1,4 +1,3 @@
-import ItemCount from "./ItemCount";
 import DescriptionMenu from "./DescriptionMenu";
 
 const ItemDetail = ({ name, price, category }) => {

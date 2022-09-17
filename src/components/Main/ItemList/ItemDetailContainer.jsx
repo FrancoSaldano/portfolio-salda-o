@@ -49,15 +49,15 @@ const ItemDetailContainer = ({ categoryId, itemId }) => {
       </>
     );
   } else {
-    console.log(services[0].name, "este es el ervice");
     return (
       <>
         <div className="grow w-full">
           <ShowItem
-            name={services[0]?.name}
-            price={services[0]?.price}
-            description={services[0]?.description}
-            category={services[0]?.category}
+            service={services[0]}
+            // name={services[0]?.name}
+            // price={services[0]?.price}
+            // description={services[0]?.description}
+            // category={services[0]?.category}
           />
         </div>
       </>

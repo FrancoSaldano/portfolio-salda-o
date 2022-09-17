@@ -1,31 +1,40 @@
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Aside from "./components/Main/Aside";
 import Footer from "./components/Footer/Footer";
 import Main from "./components/Main/Main";
 import Shop from "./components/Main/Shop";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import CartContainer from "./components/Main/Cart/CartContainer";
+import { CartProvider } from "./context/CartContext";
 /* funcional components*/
 function App() {
+  const [texto, setTexto] = useState("");
+
   return (
-    <div className="App grid grid-rows-6 grid-cols-3  gap-3 grow-0 relative">
-      <BrowserRouter>
+    <BrowserRouter>
+      <div className="App grid grid-rows-6 grid-cols-3  gap-3 grow-0 relative">
         <Aside />
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Main />} />
-          //ItemListContainer esta aqui
-          <Route path="/shop" element={<Shop />} />
-          //category
-          <Route path="/shop/:categoryId" element={<Shop />} />
-          //category en el shop
-          <Route path="/shop/:categoryId/:itemId" element={<Shop />} />
-          //category en el shop
-        </Routes>
+        <CartProvider>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Main />} />
+            //ItemListContainer esta aqui
+            <Route path="/shop" element={<Shop />} />
+            //category
+            <Route path="/shop/:categoryId" element={<Shop />} />
+            //category en el shop
+            <Route path="/shop/:categoryId/:itemId" element={<Shop />} />
+            //item específico
+            <Route path="/cart" element={<CartContainer />} />
+            // carrito
+          </Routes>
+        </CartProvider>
+
         <Footer />
-      </BrowserRouter>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
