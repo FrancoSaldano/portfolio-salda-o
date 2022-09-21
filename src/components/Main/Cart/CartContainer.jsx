@@ -25,7 +25,7 @@ const CartContainer = () => {
                   cantidad: {service.quantity}
                 </p>
                 <p className="text-stone-400 mx-5 text-md font-detail-roboto">
-                  total: {service.totalServicePrice}
+                  total: ${service.totalServicePrice}
                 </p>
               </p>
               <button
