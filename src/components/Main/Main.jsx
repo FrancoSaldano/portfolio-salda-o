@@ -4,7 +4,7 @@ const Main = () => {
   return (
     <div className="row-span-4 col-span-2 row-start-2 col-start-2 flex flex-col -mt-20">
       <div>
-        <p className="font-title-hammer text-4xl -mx-5 mb-5 text-right text-stone-600">
+        <p className="font-title-hammer text-4xl -mx-5 mb-5 text-right text-stone-500">
           HOME
         </p>
         <p className="m-5 font-detail-roboto text-start text-amber-100">

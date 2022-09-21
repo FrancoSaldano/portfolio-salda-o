@@ -5,13 +5,13 @@ import { useParams } from "react-router-dom";
 const Shop = () => {
   const { categoryId, itemId } = useParams();
   return (
-    <div className="flex flex-wrap row-span-4 col-span-2 row-start-2 col-start-2 -mt-20">
+    <div className="flex flex-wrap row-span-4 col-span-2 row-start-2 col-start-2 h-full -mt-20">
       <div className="grow w-full">
-        <p className="font-title-hammer text-4xl -mx-5 mb-5 text-right text-stone-600">
+        <p className="font-title-hammer text-4xl -mx-5 mb-5 text-right text-stone-500">
           SHOP
         </p>
         {categoryId ? (
-          <p className="font-title-hammer text-4xl -mx-5 mb-5 text-right text-stone-700">
+          <p className="font-title-hammer text-4xl -mx-5 mb-5 text-right text-stone-600">
             {`${categoryId}`}
           </p>
         ) : (

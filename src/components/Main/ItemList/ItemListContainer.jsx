@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import data from "../Data/MockData";
 import ItemList from "./ItemList";
-
+//este item renderiza la lista de categorias
 const ItemListContainer = ({ title }) => {
   const [category, setCategory] = useState([]);
 

@@ -1,16 +1,21 @@
 import ToCartIcon from "@heroicons/react/solid/ArrowNarrowDownIcon";
+import { CartContext } from "../../../context/CartContext";
+import { useContext } from "react";
 
 const CartWidget = () => {
-    return (
-      <>
-        <span className="flex absolute h-3 w-3">
-          <span className="animate-ping absolute left-9 bottom-1 inline-flex h-3 w-3 rounded-full bg-amber-200 opacity-75"></span>
-          <span className="absolute left-9 bottom-1 inline-flex rounded-full h-3 w-3 bg-amber-100"></span>
-        </span>
+  const { productCartList } = useContext(CartContext);
+  return (
+    <>
+      <div className=" my-auto p-1">
         <ToCartIcon className="w-6 h-6 text-stone-100 mx-auto" />
-      </>
-    );
-  };
-  
-  export default CartWidget;
-  
+        {productCartList.length !== 0 ? (
+          <p className="font-title-hammer">{productCartList.length}</p>
+        ) : (
+          ""
+        )}
+      </div>
+    </>
+  );
+};
+
+export default CartWidget;

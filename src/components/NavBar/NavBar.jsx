@@ -49,10 +49,10 @@ const NavBar = () => {
             SHOP
           </Link>
         </li>
-        <li className="mx-0 text-sm transition-all ease-in-out delay-150 hover:tracking-widest">
+        <li className="mx-0 -mt-1 text-sm transition-all ease-in-out delay-150 hover:tracking-widest">
           <Link
             to={"/cart"}
-            className="text-amber-400 transition-all ease-in-out delay-150 hover:tracking-widest"
+            className="self-center text-amber-400 transition-all ease-in-out delay-150 hover:tracking-widest"
           >
             <CartWidget />
           </Link>
