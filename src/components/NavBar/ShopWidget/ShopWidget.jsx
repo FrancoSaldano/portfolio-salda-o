@@ -1,4 +1,4 @@
-import ShoppingCartIcon from "@heroicons/react/solid/ShoppingCartIcon";
+import ShoppingCartIcon from "@heroicons/react/solid/ShoppingBagIcon";
 
 const ShopWidget = () => {
   return (

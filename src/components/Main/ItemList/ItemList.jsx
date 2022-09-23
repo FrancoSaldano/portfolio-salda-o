@@ -9,7 +9,6 @@ const ItemList = ({ categoryList }) => {
           <NavLink key={category.id} to={`/shop/${category.name}`}>
             <Item
               name={category.name}
-              price={category.price}
             />
           </NavLink>
         );

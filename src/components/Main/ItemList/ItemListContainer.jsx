@@ -1,20 +1,29 @@
 import { useState, useEffect } from "react";
-import data from "../Data/MockData";
+import { db } from "../../../utils/firebase";
+import { collection, getDocs } from "firebase/firestore";
 import ItemList from "./ItemList";
+
 //este item renderiza la lista de categorias
 const ItemListContainer = ({ title }) => {
   const [category, setCategory] = useState([]);
 
-  const getData = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(data);
-    }, 2000);
-  });
-  useEffect(() => {
-    getData.then((result) => {
-      setCategory(result);
+useEffect(() => {
+  const getData = async () => {
+    //referencia
+    const query = collection(db, "categorías");
+    //solicito info con la referencia
+    const response = await getDocs(query);
+    const categorys = response.docs.map((doc) => {
+      const newService = {
+        ...doc.data(),
+        id: doc.id,
+      };
+      return newService;
     });
-  }, []);
+    setCategory(categorys)
+  };
+  getData()
+}, []);
 
   return (
     <div className="grow w-full">

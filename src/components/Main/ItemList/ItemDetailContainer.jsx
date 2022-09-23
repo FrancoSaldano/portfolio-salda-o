@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { db } from "../../../utils/firebase";
+import { collection, getDocs } from "firebase/firestore";
 import ItemDetail from "./ItemDetail";
 import ShowItem from "./ShowItem";
 
@@ -6,30 +8,39 @@ const ItemDetailContainer = ({ categoryId, itemId }) => {
   const [services, setServices] = useState([]);
   const [type, setType] = useState(true);
 
-  const getItem = () => {
-    fetch("/MockDataJson.json")
-      .then((response) => response.json())
-      .then((data) => {
-        setTimeout(() => {
-          if (itemId) {
-            const newService = data.find(({ name }) => name === itemId);
-            setServices([newService]);
-            setType(false);
-          } else if (categoryId) {
-            const newServices = data.filter(
-              ({ category }) => category === categoryId
-            );
-            setServices(newServices);
-            setType(true);
-          } else {
-            setServices(data);
-            setType(true);
-          }
-        }, 2000);
-      });
-  };
   useEffect(() => {
-    getItem();
+    //logica para tomar la info de firestore
+    const getData = async () => {
+      //referencia
+      const query = collection(db, "servicios");
+      //solicito info con la referencia
+      const response = await getDocs(query);
+      //tomo los servicios con un data() a travez de los doc 
+      const services = response.docs.map((doc) => {
+        const newService = {
+          ...doc.data(),
+          id: doc.id,
+        };
+        return newService;
+      });
+
+      //logica para filtrar id y categorias
+      if (itemId) {
+        const newService = services.find(({ name }) => name === itemId);
+        setServices([newService]);
+        setType(false);
+      } else if (categoryId) {
+        const newServices = services.filter(
+          ({ category }) => category === categoryId
+        );
+        setServices(newServices);
+        setType(true);
+      } else {
+        setServices(services);
+        setType(true);
+      }
+    };
+    getData();
   }, [categoryId, itemId]);
 
   if (type) {
@@ -52,13 +63,7 @@ const ItemDetailContainer = ({ categoryId, itemId }) => {
     return (
       <>
         <div className="grow w-full">
-          <ShowItem
-            service={services[0]}
-            // name={services[0]?.name}
-            // price={services[0]?.price}
-            // description={services[0]?.description}
-            // category={services[0]?.category}
-          />
+          <ShowItem service={services[0]} />
         </div>
       </>
     );

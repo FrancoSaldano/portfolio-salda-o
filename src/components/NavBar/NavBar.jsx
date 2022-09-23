@@ -9,7 +9,7 @@ const NavBar = () => {
   return (
     <nav className="container fixed row-span-1 col-span-2 flex justify-evenly right-0 top-0 pt-3 pb-8 font-title-hammer bg-stone-800 z-50">
       <ul className="flex">
-        <li className="mx-3 text-sm transition-all ease-in-out delay-150 hover:tracking-widest ">
+        <li className="mx-3 text-sm transition-all ease-in-out delay-150 hover:tracking-widest">
           <Link
             to={"/"}
             className="text-amber-400 hover:underline-offset-4 hover:decoration-amber-100"
@@ -18,7 +18,7 @@ const NavBar = () => {
             HOME
           </Link>
         </li>
-        <li className="mx-3 text-sm transition-all ease-in-out delay-150 hover:tracking-widest ">
+        <li className="mx-3 text-sm transition-all ease-in-out delay-150 hover:tracking-widest">
           <a
             className="text-amber-400"
             href="#"
@@ -43,16 +43,16 @@ const NavBar = () => {
         <li className="mx-3 text-sm transition-all ease-in-out delay-150 hover:tracking-widest">
           <Link
             to={"/shop"}
-            className="text-amber-400 transition-all ease-in-out delay-150 hover:tracking-widest"
+            className="text-amber-400"
           >
             <ShopWidget />
             SHOP
           </Link>
         </li>
-        <li className="mx-0 -mt-1 text-sm transition-all ease-in-out delay-150 hover:tracking-widest">
+        <li className="mx-3 text-sm transition-all ease-in-out delay-150 hover:tracking-widest">
           <Link
             to={"/cart"}
-            className="self-center text-amber-400 transition-all ease-in-out delay-150 hover:tracking-widest"
+            className="text-amber-400 "
           >
             <CartWidget />
           </Link>
