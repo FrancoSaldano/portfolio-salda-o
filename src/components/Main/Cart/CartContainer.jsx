@@ -146,6 +146,7 @@ const CartContainer = () => {
                   <input
                     className="block py-2.5 px-0 w-full text-md text-amber-100 bg-transparent border-0 border-b-2 border-stone-400 appearance-none dark:text-white dark:border-stone-600 dark:focus:border-amber-500 focus:outline-none focus:ring-0 focus:border-amber-600 peer"
                     type="text"
+                    required={true}
                   ></input>
                 </div>
                 <div className="relative z-0 mb-6 w-full group text-left">
@@ -156,6 +157,7 @@ const CartContainer = () => {
                   <input
                     className="block py-2.5 px-0 w-full text-md text-amber-100 bg-transparent border-0 border-b-2 border-stone-400 appearance-none dark:text-white dark:border-stone-600 dark:focus:border-amber-500 focus:outline-none focus:ring-0 focus:border-amber-600 peer"
                     type="text"
+                    required={true}
                   ></input>
                 </div>
                 <div className="relative z-0 mb-6 w-full group text-left">
@@ -166,6 +168,7 @@ const CartContainer = () => {
                   <input
                     className="block py-2.5 px-0 w-full text-md text-amber-100 bg-transparent border-0 border-b-2 border-stone-400 appearance-none dark:text-white dark:border-stone-600 dark:focus:border-amber-500 focus:outline-none focus:ring-0 focus:border-amber-600 peer"
                     type="email"
+                    required={true}
                   ></input>
                 </div>
                 <div className="flex">
