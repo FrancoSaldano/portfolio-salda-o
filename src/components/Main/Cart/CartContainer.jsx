@@ -8,7 +8,6 @@ import { db } from "../../../utils/firebase";
 //lista de servicios del carrito
 const CartContainer = () => {
   const [buyer, setBuyer] = useState([]);
-  const [showId, setShowId] = useState(true);
 
   const {
     productCartList,
@@ -38,6 +37,8 @@ const CartContainer = () => {
       total: getTotalPrice(),
     };
     console.log(order)
+    const query = collection(db,"orders")
+    const response = addDoc(query, order)
   }
   
 
