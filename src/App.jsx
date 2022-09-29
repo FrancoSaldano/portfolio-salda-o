@@ -8,6 +8,7 @@ import Main from "./components/Main/Main";
 import Shop from "./components/Main/Shop";
 import CartContainer from "./components/Main/Cart/CartContainer";
 import { CartProvider } from "./context/CartContext";
+import Contact from "./components/Main/Contact";
 /* funcional components*/
 function App() {
   const [texto, setTexto] = useState("");
@@ -29,6 +30,8 @@ function App() {
             //item específico
             <Route path="/cart" element={<CartContainer />} />
             // carrito
+            <Route path="/contact" element={<Contact />} />
+            // página de contacto
           </Routes>
         </CartProvider>
 

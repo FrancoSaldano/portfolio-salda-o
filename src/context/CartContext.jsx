@@ -1,9 +1,19 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { db } from "../utils/firebase";
+import { collection, addDoc } from "firebase/firestore";
+
 export const CartContext = React.createContext();
 
 export const CartProvider = ({ children }) => {
   const [productCartList, setProductCarList] = useState([]);
+  const [users, setUsers] = useState({});
+  const [lastId, setLastId] = useState("fH6yR0C90Hu7Ahwy8DcS") 
+  // id de un usuario predeterminado que debe existir en la db 
+  // y con los campos especificos detallados en "sendUser() en este archivo"
+  // que existe solo con el fin de mostrar el proceso del cart más rapido
+  // ya que el form no se encuentra en el carrito sino en Contact.
+  // Entiendo que no sea intuitivo, pero gracias a esto se puede hacer la "order" de todas maneras, por ahora. 
 
   const findService = (serviceId) => {
     const serviceExist = productCartList.some((item) => item.id == serviceId);
@@ -46,9 +56,28 @@ export const CartProvider = ({ children }) => {
 
   const getTotalPrice = () => {
     const totalPrice = productCartList.reduce(
-      (acum, service) => acum + service.totalServicePrice , 0 );
-      return totalPrice
+      (acum, service) => acum + service.totalServicePrice,
+      0
+    );
+    return totalPrice;
   };
+
+  const sendUser = (event) => {
+    event.preventDefault();
+    setUsers({
+      name: event.target[0].value,
+      lastname: event.target[1].value,
+      email: event.target[2].value,
+      phone: event.target[3].value,
+      company: event.target[4].value,
+    });
+
+  };
+  
+  useEffect(() => {
+    const query = collection(db, "user");
+    Object.entries(users).length!==0 ? addDoc(query, users).then((response) => setLastId(response.id)) : console.log("no se puede mandar un user vacio a la db")
+  }, [users]);
 
   return (
     <CartContext.Provider
@@ -58,7 +87,9 @@ export const CartProvider = ({ children }) => {
         removeService,
         clearCartList,
         findService,
-        getTotalPrice
+        getTotalPrice,
+        sendUser,
+        lastId,
       }}
     >
       {children}

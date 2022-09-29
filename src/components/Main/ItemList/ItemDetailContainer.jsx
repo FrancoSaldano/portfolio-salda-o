@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { db } from "../../../utils/firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, addDoc } from "firebase/firestore";
 import ItemDetail from "./ItemDetail";
 import ShowItem from "./ShowItem";
 

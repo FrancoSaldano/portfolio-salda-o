@@ -1,13 +1,45 @@
-import { useContext } from "react";
-import { CartContext } from "../../../context/CartContext";
 import MinusIcon from "../Icons/MinusIcon";
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "../../../context/CartContext";
 import { Link } from "react-router-dom";
+import {doc,collection,getDoc,addDoc,query,where,} from "firebase/firestore";
+import { db } from "../../../utils/firebase";
 
 //lista de servicios del carrito
 const CartContainer = () => {
-  const { productCartList, removeService, clearCartList, getTotalPrice } =
-    useContext(CartContext);
-  console.log(productCartList);
+  const [buyer, setBuyer] = useState([]);
+  const [showId, setShowId] = useState(true);
+
+  const {
+    productCartList,
+    removeService,
+    clearCartList,
+    getTotalPrice,
+    lastId,
+  } = useContext(CartContext);
+
+  useEffect(() => {
+    const getData =  () => {
+      //referencia
+      const query = doc(db, "user", `${lastId}`);
+      //solicito info con la referencia del último usuario registrado y lo asigno como comprador
+      const response =  getDoc(query)
+      response.then((user) => setBuyer(user.data()))
+    };
+    getData();
+  }, []);
+
+
+
+  const sendOrder = () => {
+    const order = {
+      buyer:{buyer},
+      services: productCartList,
+      total: getTotalPrice(),
+    };
+    console.log(order)
+  }
+  
 
   return (
     <div className="flex flex-col h-full justify-between row-span-4 col-span-2 row-start-2 col-start-2 my-auto -mt-20 text-left">
@@ -45,7 +77,7 @@ const CartContainer = () => {
                 Limpiar Carrito
               </p>
             </button>
-            <button className="flex justify-between px-auto p-3 w-1/2 bg-stone-700 hover:bg-stone-900">
+            <button onClick={()=>sendOrder()} className="flex justify-between px-auto p-3 w-1/2 bg-stone-700 hover:bg-stone-900">
               <p className="font-detail-roboto text-stone-100">
                 Terminar compra{" "}
               </p>
@@ -61,9 +93,9 @@ const CartContainer = () => {
             El carrito esta vacío
           </p>
           <Link to={"/shop"}>
-              <p className="text-xl font-text-montserrat text-center text-amber-200 hover:bg-stone-600">
-                Tenemos servicios espectaculares para vos.
-              </p>
+            <p className="text-xl font-text-montserrat text-center text-amber-200 hover:bg-stone-600">
+              Tenemos servicios espectaculares para vos.
+            </p>
           </Link>
         </>
       )}

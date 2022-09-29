@@ -30,15 +30,13 @@ const NavBar = () => {
           </a>
         </li>
         <li className="mx-3 text-sm transition-all ease-in-out delay-150 hover:tracking-widest">
-          <a
+        <Link
+            to={"/contact"}
             className="text-amber-400"
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             <ContactIcon />
             CONTACT
-          </a>
+          </Link>
         </li>
         <li className="mx-3 text-sm transition-all ease-in-out delay-150 hover:tracking-widest">
           <Link
