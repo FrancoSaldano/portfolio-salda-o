@@ -71,7 +71,7 @@ const CartContainer = () => {
             ${getTotalPrice()}
           </p>
           <p className="font-detail-roboto text-3xl -mx-5 mb-5 text-center text-stone-500">
-            Gracias por confiar en nosotros este es el id de tu orden: {orderId}
+            Gracias por confiar en nosotros {buyer.name} <br /> Este es el id de tu orden: {orderId}
           </p>
         </>
       ) : (
