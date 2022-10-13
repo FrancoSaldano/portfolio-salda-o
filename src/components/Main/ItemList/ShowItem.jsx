@@ -22,8 +22,8 @@ const ShowItem = ({ service }) => {
       <p className="mx-6 my-2 p-3 font-text-montserrat text-md text-stone-400">
         {service.description}
       </p>
-      <p className="mx-6 my-3 p-3 font-detail-roboto text-3xl text-right text-amber-400">
-        {service.price}
+      <p className="mx-6 my-3 p-3 font-title-hammer text-3xl font-black text-right text-amber-400">
+        ${service.price}
       </p>
 
       {countToCart !== 0 && cart ? (

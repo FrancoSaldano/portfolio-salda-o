@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 const Shop = () => {
   const { categoryId, itemId } = useParams();
+  
   return (
     <div className="flex flex-wrap row-span-4 col-span-2 row-start-2 col-start-2 h-full -mt-20">
       <div className="grow w-full">

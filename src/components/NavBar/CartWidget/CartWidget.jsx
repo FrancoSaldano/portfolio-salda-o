@@ -6,7 +6,7 @@ const CartWidget = () => {
   const { productCartList } = useContext(CartContext);
   return (
     <>
-      <div className="">
+      <div>
         <ToCartIcon className="w-6 h-6 text-stone-100 mx-auto" />
         {productCartList.length !== 0 ? (
           <p className="font-title-hammer">{productCartList.length}</p>

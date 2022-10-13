@@ -15,7 +15,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         >
           <MinusIcon />
         </button>
-        <p className="my-auto mx-5 p-3 px-5 font-detail-roboto bg-stone-600 text-stone-100 rounded hover:bg-stone-700">
+        <p className="my-auto mx-5 p-3 px-5 font-title-hammer font-black bg-stone-600 text-stone-100 rounded hover:bg-stone-700">
           {count}
         </p>
         <button
@@ -27,9 +27,9 @@ const ItemCount = ({ stock, initial, onAdd }) => {
           <PlusIcon />
         </button>
       </div>
-      <div className="text-amber-100 my-auto" onClick={() => onAdd(count)}>
+      <div className="text-amber-100  my-auto" onClick={() => onAdd(count)}>
         <button className="my-10 p-3 bg-stone-600 text-stone-100 rounded hover:bg-stone-700">
-          <p className="my-auto mx-5 p-1 font-detail-roboto bg-stone-600 text-stone-100 rounded hover:bg-stone-700">
+          <p className="my-auto mx-5 p-1 font-title-hammer font-black">
             Añadir al carrito
           </p>
         </button>

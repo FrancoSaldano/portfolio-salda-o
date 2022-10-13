@@ -2,21 +2,10 @@ import MinusIcon from "../Icons/MinusIcon";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../../context/CartContext";
 import { Link } from "react-router-dom";
-import {
-  doc,
-  collection,
-  getDoc,
-  addDoc,
-  query,
-  where,
-} from "firebase/firestore";
+import { doc, collection, getDoc, addDoc } from "firebase/firestore";
 import { db } from "../../../utils/firebase";
 
-//lista de servicios del carrito
 const CartContainer = () => {
-  const [buyer, setBuyer] = useState([]);
-  const [orderId, setOrderId] = useState("");
-
   const {
     productCartList,
     removeService,
@@ -24,6 +13,9 @@ const CartContainer = () => {
     getTotalPrice,
     lastId,
   } = useContext(CartContext);
+
+  const [buyer, setBuyer] = useState([]);
+  const [orderId, setOrderId] = useState("");
 
   useEffect(() => {
     const getData = () => {
@@ -36,7 +28,7 @@ const CartContainer = () => {
     getData();
   }, []);
 
-  const sendOrder = () => {
+  const sendOrder2 = () => {
     const order = {
       buyer: { buyer },
       services: productCartList,
@@ -47,7 +39,7 @@ const CartContainer = () => {
     addDoc(query, order).then((response) => setOrderId(response.id));
   };
 
-  const sendOrder2 = (event) => {
+  const sendOrder = (event) => {
     event.preventDefault();
     // console.log("Orden enviada", event);
     // console.log("nombre", event.target[0].value);
@@ -79,20 +71,22 @@ const CartContainer = () => {
       <p className="font-title-hammer text-4xl -mx-5 mb-5 text-right text-stone-500">
         CART
       </p>
-      {/* //si esta la orden desplega la info */}
+
       {orderId ? (
         <>
           {productCartList.map((service) => (
             <div key={service.id} className="flex">
-              <p className="flex mx-6 my-2 p-3 font-title-hammer text-3xl text-amber-200">
-                {service.name}
-                <p className="text-stone-400 mx-5 text-md font-detail-roboto">
-                  cantidad: {service.quantity}
+              <div className="flex mx-6 my-2 p-3 ">
+                <p className="font-title-hammer text-3xl text-amber-200">
+                  {service.name}
                 </p>
-                <p className="text-stone-400 mx-5 text-md font-detail-roboto">
-                  total: ${service.totalServicePrice}
+                <p className="mx-6 my-auto text-xl font-title-hammer text-stone-100 font-black">
+                  CANTIDAD. {service.quantity}
                 </p>
-              </p>
+                <p className="mx-6 my-auto text-xl font-title-hammer text-stone-100 font-black">
+                  SUBTOTAL. ${service.totalServicePrice}
+                </p>
+              </div>
             </div>
           ))}
           <p className="font-title-hammer text-4xl -mx-5 mb-5 text-right text-amber-300">
@@ -113,21 +107,22 @@ const CartContainer = () => {
           </button>
         </>
       ) : (
-        //si no, chequea si hay algo en el carrito
         <>
           {productCartList.length > 0 ? (
             <>
               {productCartList.map((service) => (
-                <div key={service.id} className="flex">
-                  <p className="flex mx-6 my-2 p-3 font-title-hammer text-3xl text-amber-200">
-                    {service.name}
-                    <p className="text-stone-400 mx-5 text-md font-detail-roboto">
-                      cantidad: {service.quantity}
+                <div key={service.id} className="flex justify-between">
+                  <div className="flex mx-6 my-2 p-3 ">
+                    <p className="font-title-hammer text-3xl text-amber-200">
+                      {service.name}
                     </p>
-                    <p className="text-stone-400 mx-5 text-md font-detail-roboto">
-                      total: ${service.totalServicePrice}
+                    <p className="mx-6 my-auto text-xl font-title-hammer text-stone-100 font-black">
+                      CANTIDAD. {service.quantity}
                     </p>
-                  </p>
+                    <p className="mx-6 my-auto text-xl font-title-hammer text-stone-100 font-black">
+                      SUBTOTAL. ${service.totalServicePrice}
+                    </p>
+                  </div>
                   <button
                     onClick={() => removeService(service.id)}
                     className="px-3 py-2 m-4 bg-stone-600 text-stone-100 rounded hover:bg-stone-700"
@@ -136,12 +131,10 @@ const CartContainer = () => {
                   </button>
                 </div>
               ))}
-              <form onSubmit={sendOrder2}>
+              <form onSubmit={sendOrder}>
                 <div className="relative z-0 mb-6 w-full group text-left">
-                  <label 
-                className=" peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-amber-600 peer-focus:dark:text-amber-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >
-                    Nombre:
+                  <label className=" peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-amber-600 peer-focus:dark:text-amber-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                    {"Nombre:"}
                   </label>
                   <input
                     className="block py-2.5 px-0 w-full text-md text-amber-100 bg-transparent border-0 border-b-2 border-stone-400 appearance-none dark:text-white dark:border-stone-600 dark:focus:border-amber-500 focus:outline-none focus:ring-0 focus:border-amber-600 peer"
@@ -176,18 +169,18 @@ const CartContainer = () => {
                     onClick={() => clearCartList()}
                     className="flex px-auto p-3 w-1/2 bg-stone-800 hover:bg-stone-900"
                   >
-                    <p className="font-detail-roboto text-stone-100">
-                      {"Limpiar Carrito"}
+                    <p className="p-2 my-auto font-text-montserrat text-stone-100">
+                      Limpiar Carrito
                     </p>
                   </button>
                   <button
                     type="submit"
                     className="flex justify-between px-auto p-3 w-1/2 bg-stone-700 hover:bg-stone-900"
                   >
-                    <p className="font-detail-roboto text-stone-100">
-                      {"Terminar compra"}
+                    <p className="p-2 my-auto font-text-montserrat text-stone-100">
+                      Terminar compra
                     </p>
-                    <p className="font-detail-roboto text-stone-100">
+                    <p className="font-title-hammer text-3xl my-auto font-black text-right text-amber-400">
                       ${getTotalPrice()}
                     </p>
                   </button>

@@ -1,10 +1,4 @@
-import { useContext, useState, useEffect } from "react";
-import { CartContext } from "../../context/CartContext";
-import { db } from "../../utils/firebase";
-import { collection, addDoc } from "firebase/firestore";
-
 const Contact = () => {
-  const { sendUser } = useContext(CartContext);
   
   return (
     <div className="row-span-4 col-span-2 row-start-2 col-start-2 flex flex-col -mt-20">
@@ -12,7 +6,7 @@ const Contact = () => {
         <p className="font-title-hammer text-4xl -mx-5 mb-5 text-right text-stone-500">
           CONTACT
         </p>
-        <form onSubmit={sendUser}>
+        <form onSubmit={(event) =>event.preventDefault()}>
           <div className="mb-10 grid md:grid-cols-2 md:gap-6">
             <div className="relative z-0 mb-6 w-full group text-left">
               <input

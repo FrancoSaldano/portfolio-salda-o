@@ -13,8 +13,8 @@ const ItemDetail = ({ name, price, category }) => {
           category={category}
         ></DescriptionMenu>
       </div>
-      <p className="p-4 mx-auto my-1 grow font-detail-roboto text-md text-amber-100 ">
-        {price}
+      <p className="p-4 mx-auto my-1 grow font-title-hammer font-black text-md text-stone-100 ">
+        ${price}
       </p>
     </div>
   );
