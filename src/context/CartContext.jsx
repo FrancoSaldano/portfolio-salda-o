@@ -1,15 +1,11 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { db } from "../utils/firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { useState } from "react";
 
 export const CartContext = React.createContext();
 
 export const CartProvider = ({ children }) => {
   
   const [productCartList, setProductCarList] = useState([]);
-  const [users, setUsers] = useState({});
-  const [lastId, setLastId] = useState("fH6yR0C90Hu7Ahwy8DcS") 
 
   const findService = (serviceId) => {
     const serviceExist = productCartList.some((item) => item.id == serviceId);
@@ -58,22 +54,6 @@ export const CartProvider = ({ children }) => {
     return totalPrice;
   };
 
-  const sendUser = (event) => {
-    event.preventDefault();
-    setUsers({
-      name: event.target[0].value,
-      lastname: event.target[1].value,
-      email: event.target[2].value,
-      phone: event.target[3].value,
-      company: event.target[4].value,
-    });
-
-  };
-  
-  useEffect(() => {
-    const query = collection(db, "user");
-    Object.entries(users).length!==0 ? addDoc(query, users).then((response) => setLastId(response.id)) : console.log("no se puede mandar un user vacio a la db")
-  }, [users]);
 
   return (
     <CartContext.Provider
@@ -84,8 +64,6 @@ export const CartProvider = ({ children }) => {
         clearCartList,
         findService,
         getTotalPrice,
-        sendUser,
-        lastId,
       }}
     >
       {children}
