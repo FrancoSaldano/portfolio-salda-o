@@ -26,7 +26,7 @@ npm create vite@latest my-react-app -- --template react
 cd my-react-app
 ```
 
-### `Tailwind CSS` y `Heroicons` para dar todos mis estilos.
+### `Tailwind CSS` , `Heroicons` y `Headless UI` para dar todos mis estilos.
 
 Instale tailwindcss y sus dependencias de pares a través de npm, y luego ejecute el comando init para generar "tailwind.config.cjs" y "postcss.config.cjs"
 
@@ -35,6 +35,8 @@ npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 
 npm install @heroicons/react
+
+npm install @headlessui/react@latest
 ```
 
 Y agregué una fuente de texto a elección.
