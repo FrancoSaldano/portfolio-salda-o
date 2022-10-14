@@ -52,4 +52,4 @@ npm install firebase
 
 ## Pueden seguir el paso a paso de instalación a más detalle, en los respectivos canales de información.
 
-_[Vite](https://vitejs.dev/guide/)_,_[TailwindCSS](https://tailwindcss.com/docs/guides/vite)_,_[Heroicons](https://github.com/tailwindlabs/heroicons)_
+_[Vite](https://vitejs.dev/guide/)_, _[TailwindCSS](https://tailwindcss.com/docs/guides/vite)_, _[Heroicons](https://github.com/tailwindlabs/heroicons)_, _[Headless UI](https://github.com/tailwindlabs/headlessui)_
