@@ -3,14 +3,13 @@ import { useState, useContext } from "react";
 import { CartContext } from "../../../context/CartContext";
 
 const ShowItem = ({ service }) => {
-  //name.description,price
   const { addService } = useContext(CartContext);
   const [countToCart, setCountToCart] = useState(0);
   const [cart, setCart] = useState(false);
 
   const onAdd = (count) => {
     setCountToCart(count);
-    setCart(true)
+    setCart(true);
     addService(service, count);
   };
 

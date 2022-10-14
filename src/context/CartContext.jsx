@@ -4,7 +4,6 @@ import { useState } from "react";
 export const CartContext = React.createContext();
 
 export const CartProvider = ({ children }) => {
-  
   const [productCartList, setProductCarList] = useState([]);
 
   const findService = (serviceId) => {
@@ -18,7 +17,7 @@ export const CartProvider = ({ children }) => {
       quantity,
     };
     if (findService(newService.id)) {
-      //si existe buscalo
+      //si existe en el carrito, buscalo y modificalo.
       const position = productCartList.findIndex(
         (servicecart) => servicecart.id == newService.id
       );
@@ -29,7 +28,7 @@ export const CartProvider = ({ children }) => {
         newCartList[position].quantity * parseInt(newCartList[position].price);
       setProductCarList(newCartList);
     } else {
-      //si no existe agregar al carrito
+      //si no existe, agregalo al carrito.
       newService.totalServicePrice = newService.quantity * newService.price;
       const newCartList = [...productCartList];
       newCartList.push(newService);
@@ -53,7 +52,6 @@ export const CartProvider = ({ children }) => {
     );
     return totalPrice;
   };
-
 
   return (
     <CartContext.Provider

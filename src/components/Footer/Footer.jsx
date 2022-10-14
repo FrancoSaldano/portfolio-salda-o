@@ -8,7 +8,13 @@ const Footer = () => {
         <p className=" w-max my-auto font-detail-roboto text-stone-400 text-md font-black">
           by Franco Saldaño
         </p>
-        <a href="https://github.com/critical-dmg/portfolio-salda-o.git" target="blank"> <Code className="text-stone-400 h-7 ml-3 hover:text-amber-200"></Code></a>
+        <a
+          href="https://github.com/critical-dmg/portfolio-salda-o.git"
+          target="blank"
+        >
+          {" "}
+          <Code className="text-stone-400 h-7 ml-3 hover:text-amber-200"></Code>
+        </a>
       </div>
 
       <div className="flex justify-end">

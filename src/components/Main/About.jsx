@@ -8,12 +8,13 @@ const About = () => {
           ABOUT
         </p>
         <p className="m-5 font-detail-roboto text-start text-amber-100">
-        La idea principal de este proyecto es establecer los conocimientos adquiridos en el periodo que estudié en CODERHOUSE <br></br>
-        Espacialmente en el curso de React.js <br />
-        El mismo consta de un e-commerse con un catálogo , detalle del item y carrito.
+          La idea principal de este proyecto es establecer los conocimientos
+          adquiridos en el periodo que estudié en CODERHOUSE <br/>
+          Espacialmente en el curso de React.js <br />
+          El mismo consta de un e-commerse con un catálogo , detalle del item y
+          carrito.
         </p>
       </div>
-      
     </div>
   );
 };

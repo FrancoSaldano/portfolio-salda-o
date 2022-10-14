@@ -9,7 +9,7 @@ import { db } from "../../../utils/firebase";
 const CartContainer = () => {
   const { productCartList, removeService, clearCartList, getTotalPrice } =
     useContext(CartContext);
-
+ 
   const [orderId, setOrderId] = useState("");
   const [loading, setLoading] = useState(false);
 
