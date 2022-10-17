@@ -2,6 +2,8 @@
 
 > Hecho en React.js y TailwindCSS
 
+> [Video demostrativo](https://www.loom.com/share/a227171af2204e23a3f117948d3c420c)
+
 ## Clone repo
 
 ```
