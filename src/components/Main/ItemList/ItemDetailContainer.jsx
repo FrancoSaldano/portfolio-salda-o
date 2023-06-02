@@ -1,47 +1,47 @@
-import { useState, useEffect } from "react";
-import { db } from "../../../utils/firebase";
-import { collection, getDocs } from "firebase/firestore";
-import ItemDetail from "./ItemDetail";
-import ShowItem from "./ShowItem";
+import { useState, useEffect } from "react"
+import { db } from "../../../utils/firebase"
+import { collection, getDocs } from "firebase/firestore"
+import ItemDetail from "./ItemDetail"
+import ShowItem from "./ShowItem"
 
 const ItemDetailContainer = ({ categoryId, itemId }) => {
-  const [services, setServices] = useState([]);
-  const [type, setType] = useState(true);
+  const [services, setServices] = useState([])
+  const [type, setType] = useState(true)
 
   useEffect(() => {
-    //logica para tomar la info de firestore
+    //lógica para tomar la info de firestore
     const getData = async () => {
       //referencia
-      const query = collection(db, "servicios");
+      const query = collection(db, "servicios")
       //solicito info con la referencia
-      const response = await getDocs(query);
-      //tomo los servicios con un data() a travez de los doc 
+      const response = await getDocs(query)
+      //tomo los servicios con un data() a traves de los doc 
       const services = response.docs.map((doc) => {
         const newService = {
           ...doc.data(),
           id: doc.id,
-        };
-        return newService;
-      });
+        }
+        return newService
+      })
 
-      //logica para filtrar id y categorias
+      //lógica para filtrar id y categorías
       if (itemId) {
-        const newService = services.find(({ name }) => name === itemId);
-        setServices([newService]);
-        setType(false);
+        const newService = services.find(({ name }) => name === itemId)
+        setServices([newService])
+        setType(false)
       } else if (categoryId) {
         const newServices = services.filter(
           ({ category }) => category === categoryId
-        );
-        setServices(newServices);
-        setType(true);
+        )
+        setServices(newServices)
+        setType(true)
       } else {
-        setServices(services);
-        setType(true);
+        setServices(services)
+        setType(true)
       }
-    };
-    getData();
-  }, [categoryId, itemId]);
+    }
+    getData()
+  }, [categoryId, itemId])
 
   if (type) {
     return (
@@ -55,10 +55,10 @@ const ItemDetailContainer = ({ categoryId, itemId }) => {
                 category={servicio.category}
               />
             </div>
-          );
+          )
         })}
       </>
-    );
+    )
   } else {
     return (
       <>
@@ -66,8 +66,8 @@ const ItemDetailContainer = ({ categoryId, itemId }) => {
           <ShowItem service={services[0]} />
         </div>
       </>
-    );
+    )
   }
-};
+}
 
-export default ItemDetailContainer;
+export default ItemDetailContainer

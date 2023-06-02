@@ -1,20 +1,21 @@
-import MinusIcon from "../Icons/MinusIcon";
-import Loader from "../Icons/Loader";
-import { useContext, useState } from "react";
-import { CartContext } from "../../../context/CartContext";
-import { Link } from "react-router-dom";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "../../../utils/firebase";
+import MinusIcon from "../Icons/MinusIcon"
+import Loader from "../Icons/Loader"
+import { useContext, useState } from "react"
+import { CartContext } from "../../../context/CartContext"
+import { Link } from "react-router-dom"
+import { collection, addDoc } from "firebase/firestore"
+import { db } from "../../../utils/firebase"
+import Headers from '../Headers'
 
-const CartContainer = () => {
+const CartContainer = ({ gridPosition }) => {
   const { productCartList, removeService, clearCartList, getTotalPrice } =
-    useContext(CartContext);
- 
-  const [orderId, setOrderId] = useState("");
-  const [loading, setLoading] = useState(false);
+    useContext(CartContext)
+
+  const [orderId, setOrderId] = useState("")
+  const [loading, setLoading] = useState(false)
 
   const sendOrder = (event) => {
-    event.preventDefault();
+    event.preventDefault()
     const order = {
       buyer: {
         name: event.target[0].value,
@@ -24,26 +25,24 @@ const CartContainer = () => {
       items: productCartList,
       total: getTotalPrice(),
       date: getDate(),
-    };
-    setLoading(true);
+    }
+    setLoading(true)
     setTimeout(() => {
-      const queryRef = collection(db, "orders");
+      const queryRef = collection(db, "orders")
       addDoc(queryRef, order).then((response) => {
-        setOrderId(response.id);
-        setLoading(false);
-      });
-    }, 3500);
-  };
+        setOrderId(response.id)
+        setLoading(false)
+      })
+    }, 3500)
+  }
 
   const getDate = () => {
-    return new Date();
-  };
+    return new Date()
+  }
 
   return (
-    <div className="flex flex-col h-full justify-between row-span-4 col-span-2 row-start-2 col-start-2 my-auto -mt-20 text-left">
-      <p className="font-title-hammer text-4xl -mx-5 mb-5 text-right text-stone-500">
-        CART
-      </p>
+    <div className={`flex flex-col gap-10 h-full ${gridPosition}`}>
+      <Headers title={'CART'} />
       {/* si se esta cargando muestra Loader */}
       {loading ? (
         <Loader />
@@ -76,8 +75,8 @@ const CartContainer = () => {
               </p>
               <button
                 onClick={() => {
-                  clearCartList();
-                  setOrderId("");
+                  clearCartList()
+                  setOrderId("")
                 }}
                 className="text-xl font-text-montserrat text-center text-amber-200 hover:bg-stone-600"
               >
@@ -186,7 +185,7 @@ const CartContainer = () => {
         </>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default CartContainer;
+export default CartContainer

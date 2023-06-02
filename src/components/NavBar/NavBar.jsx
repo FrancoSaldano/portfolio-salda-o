@@ -1,56 +1,46 @@
-import HomeWidget from "@heroicons/react/solid/HomeIcon";
-import AboutWidget from "@heroicons/react/solid/UserIcon";
-import ContactWidget from "@heroicons/react/solid/ChatIcon";
-import ShopWidget from "@heroicons/react/solid/ShoppingBagIcon";
-import CartWidget from "./CartWidget/CartWidget";
-import { Link } from "react-router-dom";
+import HomeWidget from "@heroicons/react/solid/HomeIcon"
+import ContactWidget from "@heroicons/react/solid/ChatIcon"
+import ShopWidget from "@heroicons/react/solid/ShoppingBagIcon"
+import CartWidget from "./CartWidget/CartWidget"
+import { Link } from "react-router-dom"
+
+const styles = {
+  liClass:
+    "mx-3 text-sm transition-all ease-in-out delay-150",
+  widgetClass: "w-6 h-6 text-stone-100 mx-auto hover:text-stone-300",
+}
+
 const NavBar = () => {
-  const styles = {
-    liclass:
-      "mx-3 text-sm transition-all ease-in-out delay-150 hover:tracking-widest",
-    widgetclass: "w-6 h-6 text-stone-100 mx-auto",
-  };
+
   return (
-    <nav className="container fixed row-span-1 col-span-2 flex justify-evenly right-0 top-0 pt-3 pb-8 font-title-hammer bg-stone-800 z-50">
-      <ul className="flex">
-        <li className={styles.liclass}>
+    <nav className="fixed w-full row-span-1 col-span-2 p-3 ml-auto font-title-hammer bg-inherit backdrop-blur-lg z-50">
+      <ul className="flex justify-end items-center">
+        <li className={styles.liClass}>
           <Link
             to={"/"}
-            className="text-amber-400 hover:underline-offset-4 hover:decoration-amber-100"
+            className="text-sm md:text-base text-amber-400"
           >
-            <HomeWidget className={styles.widgetclass} />
             HOME
           </Link>
         </li>
-        <li className={styles.liclass}>
-          <Link
-            to={"/about"}
-            className="text-amber-400 hover:underline-offset-4 hover:decoration-amber-100"
-          >
-            <AboutWidget className={styles.widgetclass} />
-            ABOUT
-          </Link>
-        </li>
-        <li className={styles.liclass}>
-          <Link to={"/contact"} className="text-amber-400">
-            <ContactWidget className={styles.widgetclass} />
+        <li className={styles.liClass}>
+          <Link to={"/contact"} className="text-sm md:text-base text-amber-400">
             CONTACT
           </Link>
         </li>
-        <li className={styles.liclass}>
-          <Link to={"/shop"} className="text-amber-400">
-            <ShopWidget className={styles.widgetclass} />
+        <li className={styles.liClass}>
+          <Link to={"/shop"} className="text-sm md:text-base text-amber-400">
             SHOP
           </Link>
         </li>
-        <li className={styles.liclass}>
-          <Link to={"/cart"} className="text-amber-400 ">
+        <li className={styles.liClass}>
+          <Link to={"/cart"} className="text-sm md:text-base text-amber-400 ">
             <CartWidget />
           </Link>
         </li>
       </ul>
-    </nav>
-  );
-};
+    </nav >
+  )
+}
 
-export default NavBar;
+export default NavBar

@@ -1,37 +1,25 @@
-import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
-import NavBar from "./components/NavBar/NavBar";
-import Aside from "./components/Main/Aside";
-import About from "./components/Main/About";
-import Footer from "./components/Footer/Footer";
-import Main from "./components/Main/Main";
-import Shop from "./components/Main/Shop";
-import CartContainer from "./components/Main/Cart/CartContainer";
-import { CartProvider } from "./context/CartContext";
-import Contact from "./components/Main/Contact";
+import "./App.css"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import NavBar from "./components/NavBar/NavBar"
+import Aside from "./components/Main/Aside"
+import Footer from "./components/Footer/Footer"
+
+import { CartProvider } from "./context/CartContext"
+import AllRoutes from './components/Main/AllRoutes'
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="App grid grid-rows-6 grid-cols-3  gap-3 grow-0 relative">
+      <div className="App grid grid-rows-[4em,auto,1em] grid-cols-4 gap-3 grow-0 relative">
         <Aside />
         <CartProvider>
           <NavBar />
-          <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/shop" element={<Shop />} />
-            <Route path="/shop/:categoryId" element={<Shop />} />
-            <Route path="/shop/:categoryId/:itemId" element={<Shop />} />
-            <Route path="/cart" element={<CartContainer />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/about" element={<About />} />
-          </Routes>
+          <AllRoutes />
         </CartProvider>
-        <Footer />
+        <Footer gridPosition={'row-span-1 col-span-4 col-start-1 row-start-5'} />
       </div>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App

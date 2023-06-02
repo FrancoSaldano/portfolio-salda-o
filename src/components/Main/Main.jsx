@@ -1,27 +1,24 @@
-import ItemListContainer from "../Main/ItemList/ItemListContainer";
+import ItemListContainer from "../Main/ItemList/ItemListContainer"
+import Headers from './Headers'
 
-const Main = () => {
+const Main = ({ gridPosition }) => {
   return (
-    <div className="row-span-4 col-span-2 row-start-2 col-start-2 flex flex-col -mt-20">
-      <div>
-        <p className="font-title-hammer text-4xl -mx-5 mb-5 text-right text-stone-500">
-          HOME
+    <main className={`flex flex-col w-full gap-10 p-3 ${gridPosition} `}>
+      <div className='flex flex-col gap-5'>
+        <Headers title={'HOME'} />
+        <p className="mx-5 font-detail-roboto text-start text-sm md:text-base text-amber-100">
+          Bienvenidos a mi Proyecto Final para el curso de React.js en Coderhouse.
         </p>
-        <p className="m-5 font-detail-roboto text-start text-amber-100">
-          Bienvenidos a mi Proyecto Final para el curso de React.js con
-          CODERHOUSE.
-        </p>
-        <p className="m-5 font-detail-roboto text-start text-stone-100">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
-          perferendis modi ut laborum qui earum optio corporis nobis amet.
-          Voluptatum iusto, at obcaecati adipisci quas asperiores dolore
-          exercitationem, in iste quasi eveniet ducimus ab et blanditiis magnam
-          delectus odio. Tempore quae eaque commodi magnam quidem ipsum aliquam
-          repellat vitae dolorum!
+        <p className="mx-5 font-detail-roboto text-start text-sm md:text-base text-stone-100">
+          En este proyecto puedes encontrar y es el objetivo, que los servicios de la persona sean prioridad
+          con un manejo de categorías especificas y los items correspondientes que se pueden agregar a un carro. <br />
+          Los items se muestran con su titulo y precio, su descripción en un apartado diferente
         </p>
       </div>
-      <ItemListContainer title={"CATEGORIAS"} />
-    </div>
-  );
-};
-export default Main;
+      <ItemListContainer>
+        <Headers title='Categorías' />
+      </ItemListContainer>
+    </main>
+  )
+}
+export default Main
